@@ -2,9 +2,8 @@
 layout: post
 title:  "flask国际化插件flask-babel"
 author: dacaoxin
-date:   2019-5-1 19:48:00
-catalog:  true
-categories: science
+date:   2019-5-4 19:48:00
+categories: [python, flask]
 ---
 
 获取本文的示例代码，点击[这里](https://github.com/caoxin1988/flask_demo/tree/master/babel)
@@ -48,7 +47,7 @@ def init_babel(app):
 
 flask-babel通过封装gettext()，ngettext()以及lazy_gettext()方法实现文字翻译功能。
 
-> gettext和ngettext是为英文中单数和复数时名词后加s翻译到其它语言时使用的
+> gettext和ngettext是为英文中单数和复数时名词后加s翻译到其它语言时使用的  
 > lazy_gettext和gettext的区别在于，lazy_gettext只有在文字被使用的时候，才会被翻译
 
 这里有有以下两个路由：
@@ -70,7 +69,8 @@ def index():
 <h1>{{ _('Test Sample') }}</h1>
 <h1>{{ _('Hello World!') }}</h1>
 ```
-在模板文件中，也可以使用gettext(), 这里使用‘_’代替
+
+* 在模板文件中，也可以使用gettext(), 这里使用‘_’代替
 
 利用flask-babel翻译文字步聚：
 
@@ -82,13 +82,13 @@ def index():
 extensions=jinja2.ext.autoescape,jinja2.ext.with_
 ```
 
-这段的主要意思是告诉*pybabel*从当前目录以及子目录下所有.py文件和templates/及其子录下所有.html文件里抽取所有需要被翻译的文字，即被gettext(), ngettext()以及_()方法传入的文字
+* 这段的主要意思是告诉*pybabel*从当前目录以及子目录下所有\.py文件和templates/及其子录下所有.html文件里抽取所有需要被翻译的文字，即被gettext(), ngettext()以及_()方法传入的文字
 
 ### 2.2 在项目根目录下，使用下面的命令生成messages.pot文件
 
 > $ pybabel extract -F babel/babel.cfg -o babel/messages.pot app
 
-这里要注意的是-F和-o后接的路径是运行*pybabel*命令的当前路径的相对路径，而最后的app这个参数则是告诉*pybabel*命令去哪里找**.py和**/templates/**.html文件
+* 这里要注意的是-F和-o后接的路径是运行*pybabel*命令的当前路径的相对路径，而最后的app这个参数则是告诉*pybabel*命令去哪里找\*\*.py和\*\*/templates/\*\*.html文件
 
 如果还需要翻译lazy_gettext传入的语言，可以在上面命令基础上使用-k参数：
 
@@ -104,7 +104,7 @@ extensions=jinja2.ext.autoescape,jinja2.ext.with_
 
 会将中文翻译文件放在translations/zh/LC_MESSAGES下，命名为messages.po。
 
-这里需要注意的是translations目录一定要和Flask对象app在同一级目录，否则翻译不会生效
+* 这里需要注意的是translations目录一定要和Flask对象app在同一级目录，否则翻译不会生效
 
 ### 2.4 翻译语言
 
