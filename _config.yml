@@ -17,6 +17,13 @@ github_username:  caoxin1988
 paginate: 5
 theme-dark: false #Set to true to change to dark website theme
 
+# github
+github:
+  repo: https://github.com/caoxin1988
+
 plugins: [jekyll-paginate, kramdown]
 # Build settings
 markdown: kramdown
+
+# version
+version: 1.0
