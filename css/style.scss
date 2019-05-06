@@ -161,8 +161,7 @@ a {
 blockquote {
     border-left: 4px solid;
     padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
+    font-size: 17px;
     font-style: italic;
 
     > :last-child {
@@ -298,6 +297,8 @@ pre {
   text-indent: 2px;
 }
 .postContent {
+  font-family: "Source Sans Pro";
+  font-size: 14px;
   padding-top: 3.5em;
   text-align: center;
 }
@@ -315,6 +316,7 @@ pre {
 }
 .postTitle {
   font-weight: 400;
+  font-size: 22px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -512,7 +514,7 @@ pre {
   margin-bottom: $spacing-unit;
 }
 .post-title {
-  font-size: 62px;
+  font-size: 48px;
 
   text-align: center;
   font-family: "PT Sans";
@@ -524,25 +526,30 @@ pre {
 .post-content {
   margin-bottom: $spacing-unit;
   padding-bottom: 3em !important;
-  p {
-    font-size: 1.5rem;
+  font-family: "Source Sans Pro";
+  p li {
+    font-size: 13px;
   }
   h2 {
-    font-size: 32px;
+    padding-top: 15px;
+    font-size: 26px;
+    font-weight: bold;
     @include media-query($on-laptop) {
       font-size: 28px;
     }
   }
   h3 {
-    font-size: 26px;
+    padding-top: 6px;
+    font-size: 22px;
     @include media-query($on-laptop) {
-      font-size: 22px;
+      font-size: 20px;
     }
   }
   h4 {
-    font-size: 20px;
+    padding-top: 2px;
+    font-size: 16px;
     @include media-query($on-laptop) {
-      font-size: 18px;
+      font-size: 14px;
     }
   }
 }
