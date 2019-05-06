@@ -11,7 +11,7 @@ tabtitle: CaoXin的博客
 email: caoxin1988s@gmail.com
 description: Stay hungry, Stay foolish
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "https://caoxin1988.github.io" # the base hostname & protocol for your site
 twitter_username: caoxin_TOBEDONE
 github_username:  caoxin1988
 paginate: 5
