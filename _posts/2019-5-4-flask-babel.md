@@ -66,8 +66,8 @@ def index():
 
 ```
 <!DOCTYPE html>
-<h1>{{ _('Test Sample') }}</h1>
-<h1>{{ _('Hello World!') }}</h1>
+<h1>{ { _('Test Sample') }}</h1>
+<h1>{ { _('Hello World!') }}</h1>
 ```
 
 * 在模板文件中，也可以使用gettext(), 这里使用‘_’代替
