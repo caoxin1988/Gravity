@@ -27,3 +27,5 @@ markdown: kramdown
 
 # version
 version: 1.0
+
+logo-image: /img/logo.jpg

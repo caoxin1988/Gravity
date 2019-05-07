@@ -147,7 +147,11 @@ a {
     }
 }
 
-
+/* image in sidebar */
+.img-circle {
+  border-radius: 50%;
+  text-align: center;
+}
 
 /**
  * Blockquotes
@@ -156,7 +160,6 @@ blockquote {
     border-left: 4px solid;
     padding-left: $spacing-unit / 2;
     font-size: 17px;
-    font-style: italic;
 
     > :last-child {
         margin-bottom: 0;
