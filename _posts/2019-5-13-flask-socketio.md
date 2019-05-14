@@ -149,5 +149,15 @@ def test_connect(message):
 有一点需要注意，上面通过background_task来向客户端发送消息时，直接使用socketio.emit()方法，这里的socketio并没有任何客户端请求信息，所以这
 时emit()默认直接加上了*broadcast=True*选项了。
 
+## 3. 运行
+
+flask-socketio需要使用eventlet等异步模块，可以通过gunicorn使用eventlet启动flask-socketio:
+
+> $ gunicorn --worker-class eventlet -w 1 module:app
+
+或者使用下面命令通过gevent启动:
+
+> $ gunicorn -k gevent -w 1 module:app
+
 
 想要获取完整代码，请点击[这里](https://github.com/caoxin1988/flask_demo/tree/master/socketio)
