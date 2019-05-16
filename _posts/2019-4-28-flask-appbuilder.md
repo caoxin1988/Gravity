@@ -197,3 +197,58 @@ appbuilder.add_api(ExampleApi)
 ```
 
 之后，使用*curl /api/v1/exampleapi/greeting*可以访问这个restful api
+
+## 3. 多语言支持
+
+flask-appbuilder通过集成flask-babel来实现多语言支持，关于flask-babel插件，可以点击[这里](https://caoxin1988.github.io/python/flask/2019/05/04/flask-babel.html)查看。
+flask-appbuilder里对于多语言命令又做了一层封装，和单独使用flask-babel略有差别，具体使用方法如下:
+
+在babel文件夹下添加文件babel.cfg，并添加以下内容：
+
+```
+[python: **.py]
+[jinja2: **/templates/**.html]
+encoding = utf-8
+```
+
+建立不同语言翻译的初始文件：
+
+```
+$ pybabel init -i ./babel/messages.pot -d app/translations -l zh
+```
+
+执行后会在translations目录下创建zh/LC_MESSAGES/messages.po文件。接着执行
+
+```
+$ flask fab babel-extract
+```
+
+然后更改messages.po文件里英语对应的翻译：
+
+```
+$ flask fab babel-compile
+```
+
+之后会在messages.po文件同级目录下生成messages.mo文件。这个文件将最终被flask代码使用。
+
+
+在代码和templates中，使用gettext()和lazy_gettext()方法来进行语言的转换。如：
+
+```
+@app.route('/trans/')
+def translate(num=None):
+    if num is None:
+        return gettext(u'No users')
+    return ngettext(u'%(num)d user', u'%(num)d users', num)
+```
+
+lazy_getext()和gettext()的区别在于，lazy_gettext()所转换的文字，是在真正被使用的时候才会发生转换，如：
+
+```
+from flask_babel import lazy_gettext
+hello = lazy_gettext(u'Hello World')
+ 
+@app.route('/lazy')
+def lazy():
+    return unicode(hello)
+```
